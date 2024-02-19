@@ -6,6 +6,7 @@ import RegisterScreen from '../../screens/RegisterScreen/RegisterScreen';
 import SuccessScreen from '../../screens/SuccessScreen/SuccessScreen';
 import ShopScreen from '../../screens/ShopScreen/ShopScreen';
 import ProductDetailsScreen from '../../screens/Home/ProductDetailsScreen/ProductDetailsScreen';
+import CartScreen from '../../screens/CartScreen/CartScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -41,6 +42,11 @@ const ScreenNavigator = () => {
         options={{headerShown: false , title:""}}
         name="ProductDetailsScreen"
         component={ProductDetailsScreen}
+      />
+      <Stack.Screen
+        options={{headerShown: true , title:""}}
+        name="CartScreen"
+        component={CartScreen}
       />
     </Stack.Navigator>
   );

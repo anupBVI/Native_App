@@ -85,7 +85,6 @@ const HomeScreen = ({navigation}: any) => {
     <View style={styles.mainContainer}>
       <View style={styles.header}>
         <Text>
-          HELLO
           <Ionicons
             name={'arrow-back-circle-sharp'}
             size={40}

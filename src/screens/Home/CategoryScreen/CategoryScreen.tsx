@@ -5,6 +5,7 @@ import {
   TextInput,
   Touchable,
   TouchableOpacity,
+  ActivityIndicator,
 } from 'react-native';
 import CategoryCard from '../../../components/Card/CategoryCard/CategoryCard';
 import {styles} from './Styles';
@@ -53,13 +54,19 @@ const CategoryScreen = ({navigation}: any) => {
         />
       </View>
 
-      <FlatList
-        data={categories}
-        renderItem={renderCategoryItem}
-        keyExtractor={item => item}
-        numColumns={2}
-        contentContainerStyle={styles.contentContainer}
-      />
+      {loading ? (
+        <View style={styles.loaderContainer}>
+          <ActivityIndicator size="large" color="blue" />
+        </View>
+      ) : (
+        <FlatList
+          data={categories}
+          renderItem={renderCategoryItem}
+          keyExtractor={item => item}
+          numColumns={2}
+          contentContainerStyle={styles.contentContainer}
+        />
+      )}
     </View>
   );
 };

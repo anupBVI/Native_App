@@ -5,7 +5,7 @@ import {ScrollView} from 'react-native';
 const OrderScreen = () => {
   return (
     <ScrollView>
-      <Text>
+      <Text style={{color : "black"}}>
         Order Screen Lorem ipsum dolor sit amet consectetur adipisicing elit.
         Eos sint assumenda aperiam labore aspernatur architecto, facilis
         doloremque, magni enim voluptatibus veniam vero earum accusantium neque

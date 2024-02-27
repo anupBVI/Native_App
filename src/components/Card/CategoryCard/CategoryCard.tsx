@@ -42,8 +42,7 @@ const CategoryCard = (props: CProps) => {
               alt="No image"
               style={styles.backgroundImage}>
               <View style={styles.overlay}>
-                dbfab
-                <Text style={styles.head}> j{props.category}</Text>
+                <Text style={styles.head}> {props.category}</Text>
                 <Text style={styles.subHead}>{category?.timeline}</Text>
               </View>
             </ImageBackground>

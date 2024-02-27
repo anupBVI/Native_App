@@ -15,6 +15,11 @@ export const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 5,
   },
+  loaderContainer: {
+    height: '100%',
+    justifyContent: 'center',
+    paddingHorizontal: 10,
+  },
   searchBox: {
     // backgroundColor: 'lightgray',
     backgroundColor: '#fff',

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   FlatList,
@@ -11,14 +11,31 @@ import {styles} from './Styles';
 import {CategoryData} from '../../../data/CategoryData';
 import {Text} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import axios from 'axios';
 
 const CategoryScreen = ({navigation}: any) => {
   const [searchText, setSearchText] = useState('');
 
+  const [categories, setCategories] = useState<any>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const apiUrl = 'https://fakestoreapi.com/products/categories';
+
+    axios
+      .get(apiUrl)
+      .then(response => {
+        setCategories(response.data);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+        setLoading(false);
+      });
+  }, []);
   const handleSearch = (text: any) => {
     setSearchText(text);
   };
-
   const renderCategoryItem = ({item}: any) => <CategoryCard category={item} />;
 
   return (
@@ -29,6 +46,7 @@ const CategoryScreen = ({navigation}: any) => {
         </Text>
         <TextInput
           placeholder="Search Categories"
+          placeholderTextColor="gray"
           style={styles.textInput}
           onChangeText={handleSearch}
           value={searchText}
@@ -36,9 +54,9 @@ const CategoryScreen = ({navigation}: any) => {
       </View>
 
       <FlatList
-        data={CategoryData}
+        data={categories}
         renderItem={renderCategoryItem}
-        keyExtractor={item => item.id.toString()}
+        keyExtractor={item => item}
         numColumns={2}
         contentContainerStyle={styles.contentContainer}
       />

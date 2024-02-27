@@ -21,6 +21,11 @@ export const styles = StyleSheet.create({
   wrapper: {
     backgroundColor: '#E8E9EB',
   },
+  loaderContainer: {
+    height: '100%',
+    justifyContent: 'center',
+    paddingHorizontal: 10,
+  },
   top: {
     height: '44%',
   },
@@ -75,14 +80,15 @@ export const styles = StyleSheet.create({
   },
   infoHeaderLeft: {
     gap: 5,
+    width : "60%"
   },
   pName: {
-    fontSize: 20,
+    fontSize: 14,
     color: 'black',
     fontWeight: '600',
   },
   pSubName: {
-    fontSize: 16,
+    fontSize: 12,
     color: 'gray',
   },
   review: {
@@ -120,10 +126,11 @@ export const styles = StyleSheet.create({
   },
   count: {
     fontSize: 16,
+    color : "black"
   },
   stockText: {
-    fontSize: 16,
-    color: 'black',
+    fontSize: 14,
+    color: 'gray',
   },
 
   sizeAndColors: {

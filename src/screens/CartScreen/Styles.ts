@@ -8,6 +8,7 @@ export const styles = StyleSheet.create({
   cartHeading: {
     fontSize: 24,
     fontWeight: 'bold',
+    color: 'black',
     marginBottom: 20,
   },
   itemContainer: {
@@ -20,13 +21,13 @@ export const styles = StyleSheet.create({
   //     //     justifyContent: 'space-between',
   //     //     alignItems: 'center',
   //     //     borderRadius: 10, // Adding border radius
-  //     //     overflow: 'hidden', // Make sure content doesn't overflow rounded corners
-  //     //     backgroundColor: 'white', // Setting background color to cover rounded corners
-  //     //     elevation: 3, // Adding elevation for shadow effect (Android)
-  //     //     shadowColor: 'black', // Adding shadow color (iOS)
-  //     //     shadowOffset: { width: 0, height: 2 }, // Adding shadow offset (iOS)
-  //     //     shadowOpacity: 0.2, // Adding shadow opacity (iOS)
-  //     //     shadowRadius: 2, // Adding shadow radius (iOS)
+  //     //     overflow: 'hidden',
+  //     //     backgroundColor: 'white',
+  // elevation: 3,
+  // shadowColor: 'black',
+  // shadowOffset: { width: 0, height: 2 },
+  // shadowOpacity: 0.2,
+  // shadowRadius: 2,
   //     //   },
   leftSection: {
     flexDirection: 'row',
@@ -41,7 +42,7 @@ export const styles = StyleSheet.create({
   name: {
     fontSize: 16,
     fontWeight: 'bold',
-    color : 'black'
+    color: 'black',
   },
   subtitle: {
     fontSize: 14,
@@ -53,6 +54,15 @@ export const styles = StyleSheet.create({
   rightSection: {
     flexDirection: 'row',
     alignItems: 'center',
+    // borderColor : "red",
+    // borderWidth : 1,
+    backgroundColor: 'lightgray',
+    borderRadius: 20,
+    elevation: 3,
+    shadowColor: 'black',
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
   },
   quantityButton: {
     width: 30,
@@ -64,8 +74,13 @@ export const styles = StyleSheet.create({
     marginHorizontal: 5,
   },
   quantity: {
-    fontSize: 16,
+    fontSize: 18,
     marginHorizontal: 5,
+    color: 'black',
+  },
+  count: {
+    color: 'black',
+    fontSize: 18,
   },
   separator: {
     height: 1,
@@ -103,13 +118,13 @@ export const styles = StyleSheet.create({
   summaryTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    color : 'black'
+    color: 'black',
   },
 
   summaryValue: {
     fontSize: 18,
     fontWeight: 'bold',
-    color : 'black'
+    color: 'black',
   },
   checkoutButton: {
     backgroundColor: 'black',

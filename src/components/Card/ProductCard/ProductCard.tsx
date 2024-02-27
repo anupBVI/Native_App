@@ -7,6 +7,7 @@ import {useToast} from 'react-native-toast-notifications';
 
 interface PProps {
   product: {
+    id?: string | Number;
     title: string;
     description: string;
     price: string;
@@ -17,12 +18,14 @@ interface PProps {
 const ProductCard = (props: PProps) => {
   const toast: any = useToast();
   const {product} = props;
+
+  console.log('product id', product.id);
   const navigation: any = useNavigation();
   const [fav, setFav] = useState(false);
 
   const navigateToProductsScreen = () => {
     navigation.navigate('ProductDetailsScreen', {
-      product: 'Product Name',
+      product: product,
     });
   };
 
@@ -63,12 +66,9 @@ const ProductCard = (props: PProps) => {
           </View>
 
           <View style={styles.cardInfo}>
-            <Text style={styles.title}>Hello Hello</Text>
+            <Text style={styles.title}>{product.title}</Text>
             <Text style={styles.subTitle}>Lorem ipsum dolor sit.</Text>
             <Text style={styles.price}>$ {product.price}</Text>
-            {/* <Text style={styles.title}>{product.title}</Text>
-            <Text style={styles.subTitle}>{product.description}</Text>
-            <Text style={styles.price}>{product.price}</Text> */}
           </View>
         </View>
       </TouchableOpacity>

@@ -7,6 +7,8 @@ import {
   FlatList,
   ScrollView,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
 import {styles} from './Styles';
 
 const CartScreen = () => {
@@ -72,13 +74,18 @@ const CartScreen = () => {
           <Text style={styles.price}>{item.price}</Text>
         </View>
       </View>
+
       <View style={styles.rightSection}>
         <TouchableOpacity style={styles.quantityButton}>
-          <Text>-</Text>
+          <Text style={styles.count}>
+            <Icon name="remove" size={20} color="gray" />
+          </Text>
         </TouchableOpacity>
         <Text style={styles.quantity}>{item.quantity}</Text>
         <TouchableOpacity style={styles.quantityButton}>
-          <Text>+</Text>
+          <Text style={styles.count}>
+            <Icon name="add" size={20} color="gray" />
+          </Text>
         </TouchableOpacity>
       </View>
     </View>

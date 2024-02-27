@@ -24,6 +24,7 @@
     "react-native-screens": "^3.29.0",
     "react-native-snap-carousel": "^3.9.1",
     "react-native-splash-screen": "^3.3.0",
+    "react-native-star-rating": "^1.1.0",
     "react-native-toast-notifications": "^3.4.0",
     "react-native-vector-icons": "^10.0.3"
   },

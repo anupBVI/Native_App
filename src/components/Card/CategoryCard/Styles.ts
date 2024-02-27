@@ -37,6 +37,7 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '600',
     opacity: 1,
+    textTransform : "capitalize"
   },
   subHead: {
     color: 'white',

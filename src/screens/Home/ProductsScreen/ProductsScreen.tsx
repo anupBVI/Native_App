@@ -1,27 +1,19 @@
-import {
-  ActivityIndicator,
-  FlatList,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from 'react-native';
+import {ActivityIndicator, FlatList, Text, TextInput, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
-import CategoryCard from '../../../components/Card/CategoryCard/CategoryCard';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import {styles} from './Styles';
-import {CategoryData} from '../../../data/CategoryData';
 import ProductCard from '../../../components/Card/ProductCard/ProductCard';
 import axios from 'axios';
+import {Icon} from 'react-native-elements';
 
 const ProductsScreen = (props: any) => {
+  console.log('on pr', props?.route.params.categoryName);
   const [products, setProducts] = useState<any>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const apiUrl = 'https://fakestoreapi.com/products';
-
+    const apiUrl = `https://fakestoreapi.com/products/category/${props?.route?.params.categoryName}`;
+    // const apiUrl = `https://fakestoreapi.com/products`
     axios
       .get(apiUrl)
       .then(response => {

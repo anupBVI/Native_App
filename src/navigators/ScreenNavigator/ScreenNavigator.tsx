@@ -7,6 +7,8 @@ import SuccessScreen from '../../screens/SuccessScreen/SuccessScreen';
 import ShopScreen from '../../screens/ShopScreen/ShopScreen';
 import ProductDetailsScreen from '../../screens/Home/ProductDetailsScreen/ProductDetailsScreen';
 import CartScreen from '../../screens/CartScreen/CartScreen';
+import {ScrollView} from 'react-native';
+import TestScreen from '../../screens/TestScreen/TestScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -25,6 +27,11 @@ const ScreenNavigator = () => {
       />
       <Stack.Screen
         options={{headerShown: false}}
+        name="TestScreen"
+        component={TestScreen}
+      />
+      <Stack.Screen
+        options={{headerShown: false}}
         name="RegisterScreen"
         component={RegisterScreen}
       />
@@ -39,12 +46,12 @@ const ScreenNavigator = () => {
         component={ShopScreen}
       />
       <Stack.Screen
-        options={{headerShown: false , title:""}}
+        options={{headerShown: false, title: ''}}
         name="ProductDetailsScreen"
         component={ProductDetailsScreen}
       />
       <Stack.Screen
-        options={{headerShown: true , title:""}}
+        options={{headerShown: true, title: ''}}
         name="CartScreen"
         component={CartScreen}
       />

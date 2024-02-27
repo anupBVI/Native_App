@@ -47,6 +47,7 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 5,
+    color : "black"
   },
   email: {
     fontSize: 16,
@@ -86,6 +87,7 @@ export const styles = StyleSheet.create({
   leftIcon: {},
   leftText: {},
   optionText: {
+    color : "black",
     fontSize: 16,
   },
   optionContainerRight: {},

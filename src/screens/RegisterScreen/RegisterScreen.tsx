@@ -1,16 +1,7 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useState} from 'react';
 
-import {
-  View,
-  Text,
-  TextInput,
-  Button,
-  Alert,
-  StyleSheet,
-  Pressable,
-  TouchableOpacity,
-} from 'react-native';
+import {View, Text, TextInput, Alert, ScrollView} from 'react-native';
 import {Image} from 'react-native-elements';
 import {styles} from './Styles';
 import {CheckBox} from 'react-native-elements/dist/checkbox/CheckBox';
@@ -64,7 +55,7 @@ const RegisterScreen = ({navigation}: any) => {
   };
 
   return (
-    <View>
+    <ScrollView>
       <View style={styles.imageContainer}>
         <Image
           source={require('../../assets/Images/logo.png')}
@@ -90,37 +81,54 @@ const RegisterScreen = ({navigation}: any) => {
         </View>
       )}
 
-      <View style={{padding: 20}}>
-        <Text style={styles.inputLabel}>User Name</Text>
-        <TextInput
-          style={styles.textInput}
-          onChangeText={handleUserName}
-          value={userName}
-        />
-        <Text style={styles.inputLabel}>Email</Text>
-        <TextInput
-          style={styles.textInput}
-          onChangeText={handleEmail}
-          value={email}
-        />
-        <Text style={styles.inputLabel}>Password</Text>
-        <TextInput
-          style={styles.textInput}
-          onChangeText={handlePassword}
-          value={password}
-          secureTextEntry
-        />
-        <Text style={styles.inputLabel}> Confirm Password</Text>
-        <TextInput
-          style={styles.textInput}
-          onChangeText={handleConfirmPassword}
-          value={confirmPassword}
-          keyboardType="email-address"
-        />
+      <View style={styles.formContainer}>
+        <View style={styles.inputBox}>
+          <Text style={styles.inputLabel}>User Name</Text>
+          <TextInput
+            style={styles.textInput}
+            onChangeText={handleUserName}
+            value={userName}
+            placeholder="Enter Username"
+            placeholderTextColor="gray"
+          />
+        </View>
+
+        <View style={styles.inputBox}>
+          <Text style={styles.inputLabel}>Email</Text>
+          <TextInput
+            style={styles.textInput}
+            onChangeText={handleEmail}
+            value={email}
+            placeholder="Enter Your Email"
+            placeholderTextColor="gray"
+          />
+        </View>
+        <View style={styles.inputBox}>
+          <Text style={styles.inputLabel}>Password</Text>
+          <TextInput
+            style={styles.textInput}
+            onChangeText={handlePassword}
+            value={password}
+            placeholder="Enter Password"
+            placeholderTextColor="gray"
+            secureTextEntry
+          />
+        </View>
+        <View style={styles.inputBox}>
+          <Text style={styles.inputLabel}> Confirm Password</Text>
+          <TextInput
+            style={styles.textInput}
+            onChangeText={handleConfirmPassword}
+            value={confirmPassword}
+            placeholder="Confirm Password"
+            placeholderTextColor="gray"
+            keyboardType="email-address"
+          />
+        </View>
+
         <View style={styles.checkboxContainer}>
           <CheckBox checked={termsAccepted} onIconPress={handleCheckbox} />
           <Text style={styles.checkboxLabel}>
-            {/* By creating an account you have to */}
             Agree with our Terms & Conditions.
           </Text>
         </View>
@@ -133,7 +141,7 @@ const RegisterScreen = ({navigation}: any) => {
           onPressHandler={() => navigation.navigate('SuccessScreen')}
         />
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

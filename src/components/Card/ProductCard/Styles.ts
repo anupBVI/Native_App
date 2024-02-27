@@ -50,18 +50,18 @@ export const styles = StyleSheet.create({
   },
 
   cardInfo: {
-    alignItems: 'center',
+    alignItems: 'flex-start',
   },
 
   title: {
     color: 'black',
-    fontSize: 20,
+    fontSize: 14,
     fontWeight: '600',
     opacity: 1,
   },
   subTitle: {
     color: 'gray',
-    fontSize: 16,
+    fontSize: 12,
     fontWeight: '400',
   },
   price: {

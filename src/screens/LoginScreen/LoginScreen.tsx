@@ -1,49 +1,76 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useState} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
 import {
   View,
   Text,
   TextInput,
-  Button,
-  Alert,
-  StyleSheet,
-  Pressable,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 import {Image} from 'react-native-elements';
 import {rulerStyles, styles} from './Styles';
 import LargeButton from '../../components/Button/LargeButton/LargeButton';
+import {useToast} from 'react-native-toast-notifications';
 
 const LoginScreen = ({navigation}: any) => {
+  const toast: any = useToast();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+
   const [submittedData, setSubmittedData] = useState<any>(null);
 
   const handleEmailChange = (text: any) => {
     setEmail(text);
+    setEmailError('');
+    setPasswordError('');
   };
 
   const handlePasswordChange = (text: any) => {
     setPassword(text);
+    setEmailError('');
+    setPasswordError('');
   };
 
-  const handleSubmit = ({navigation}: any) => {
-    const data = {email, password};
-    // Here you can implement your registration logic
-    console.log('Submitted:', data);
-    // Set submitted data to display below the form
-    setSubmittedData(data);
-    // Reset form after submission
-    setEmail('');
-    setPassword('');
+  const handleSubmit = () => {
+    // Validate email
+    if (!email) {
+      setEmailError('Email is required');
+    }
 
-    Alert.alert('Successfully registered');
+    // Validate password
+    if (!password) {
+      setPasswordError('Password is required');
+    }
+
+    // Check credentials
+    if (email === 'alex@yopmail.com' && password === 'Password@123') {
+      toast.show('Login Successful', {
+        type: 'success',
+        placement: 'top',
+        duration: 1000,
+        offset: 30,
+        animationType: 'slide-in',
+      });
+
+      navigation.navigate('ShopScreen');
+    } else {
+      toast.show('Incorrect Email or Password', {
+        type: 'danger',
+        placement: 'top',
+        duration: 2000,
+        offset: 30,
+        animationType: 'slide-in',
+      });
+    }
   };
 
   return (
-    <View>
+    <ScrollView style={{flex: 1}}>
       <View style={styles.imageContainer}>
         <Image
           source={require('../../assets/Images/logo.png')}
@@ -52,35 +79,60 @@ const LoginScreen = ({navigation}: any) => {
       </View>
 
       <View style={styles.headerText}>
-        <Text style={styles.title}>Welocome !</Text>
+        <Text style={styles.title}>Welcome!</Text>
         <Text style={styles.subTitle}>
           Please Login or Signup to continue to our app.
         </Text>
       </View>
 
       <View style={{padding: 20}}>
-        <Text style={styles.inputLabel}>Email</Text>
-        <TextInput
-          style={styles.textInput}
-          onChangeText={handleEmailChange}
-          value={email}
-          keyboardType="email-address"
-        />
+        <View style={styles.inputBox}>
+          <Text style={styles.inputLabel}>Email</Text>
+          <TextInput
+            style={styles.textInput}
+            onChangeText={handleEmailChange}
+            value={email}
+            placeholder="Enter Username or Email"
+            placeholderTextColor="gray"
+            keyboardType="email-address"
+          />
+          {emailError ? (
+            <Text style={styles.errorText}>{emailError}</Text>
+          ) : null}
+        </View>
 
-        <Text style={styles.inputLabel}>Password</Text>
-        <TextInput
-          style={styles.textInput}
-          onChangeText={handlePasswordChange}
-          value={password}
-          secureTextEntry
-        />
+        <View style={styles.inputBox}>
+          <Text style={styles.inputLabel}>Password</Text>
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <TextInput
+              style={[styles.textInput, {flex: 1}]}
+              onChangeText={handlePasswordChange}
+              value={password}
+              placeholder="Enter Username or Email"
+              placeholderTextColor="gray"
+              secureTextEntry={!showPassword}
+            />
+            <TouchableOpacity
+              style={styles.visibilityIcon}
+              onPress={() => setShowPassword(!showPassword)}>
+              <Icon
+                name={showPassword ? 'eye-slash' : 'eye'}
+                size={20}
+                color="gray"
+              />
+            </TouchableOpacity>
+          </View>
+          {passwordError ? (
+            <Text style={styles.errorText}>{passwordError}</Text>
+          ) : null}
+        </View>
 
         <View style={styles.btnContainer}>
           <LargeButton
             label={'Login'}
             background={'black'}
             color={'white'}
-            onPressHandler={() => navigation.navigate('RegisterScreen')}
+            onPressHandler={handleSubmit}
           />
 
           <View style={rulerStyles.hrContainer}>
@@ -111,18 +163,8 @@ const LoginScreen = ({navigation}: any) => {
             onPressHandler={() => navigation.navigate('RegisterScreen')}
           />
         </View>
-
-        {/* {submittedData && (
-          <View style={{marginTop: 20}}>
-            <Text>Submitted Data:</Text>
-            <Text>First Name: {submittedData.firstName}</Text>
-            <Text>Last Name: {submittedData.lastName}</Text>
-            <Text>Email: {submittedData.email}</Text>
-            <Text>Password: {submittedData.password}</Text>
-          </View>
-        )} */}
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

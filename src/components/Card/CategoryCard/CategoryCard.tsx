@@ -22,7 +22,7 @@ interface CProps {
 const CategoryCard = (props: CProps) => {
   const {category} = props;
 
-  console.log('props', props);
+  // console.log('props', props);
   const navigation: any = useNavigation();
   const handleCategoryPress = () => {
     navigation.navigate('ProductsScreen');

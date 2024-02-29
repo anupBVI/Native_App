@@ -43,7 +43,7 @@ const RegisterScreen = ({navigation}: any) => {
 
     const data = {userName, email, password, confirmPassword, termsAccepted};
     // Here you can implement your registration logic
-    console.log('Submitted:', data);
+    // console.log('Submitted:', data);
     setSubmittedData(data);
     setUserName('');
     setEmail('');

@@ -19,7 +19,7 @@ const ProductCard = (props: PProps) => {
   const toast: any = useToast();
   const {product} = props;
 
-  console.log('product id', product.id);
+  // console.log('product id', product.id);
   const navigation: any = useNavigation();
   const [fav, setFav] = useState(false);
 

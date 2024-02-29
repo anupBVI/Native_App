@@ -9,6 +9,7 @@ export const styles = StyleSheet.create({
     color: 'black',
     fontSize: 20,
     fontWeight: '600',
+    textTransform : "capitalize"
   },
   headerContainer: {
     paddingHorizontal: 10,

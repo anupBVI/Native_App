@@ -17,9 +17,13 @@ export const styles = StyleSheet.create({
   flexRow: {
     display: 'flex',
     flexDirection: 'row',
+    position: 'relative',
   },
   wrapper: {
-    backgroundColor: '#E8E9EB',
+    // backgroundColor: '#E8E9EB',
+    height: '100%',
+    // flex: 1,
+    // backgroundColor: '#ffffff',
   },
   loaderContainer: {
     height: '100%',
@@ -65,13 +69,15 @@ export const styles = StyleSheet.create({
     objectFit: 'fill',
     overflow: 'hidden',
   },
+  ScrollContainer: {
+    height: '48%',
+  },
+
   bottom: {
-    height: '56%',
+    flex: 1,
     backgroundColor: 'white',
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
-    padding: 20,
-    paddingBottom: 20,
     elevation: 20,
   },
   infoHeader: {
@@ -80,7 +86,7 @@ export const styles = StyleSheet.create({
   },
   infoHeaderLeft: {
     gap: 5,
-    width : "60%"
+    width: '60%',
   },
   pName: {
     fontSize: 14,
@@ -126,7 +132,7 @@ export const styles = StyleSheet.create({
   },
   count: {
     fontSize: 16,
-    color : "black"
+    color: 'black',
   },
   stockText: {
     fontSize: 14,
@@ -207,25 +213,26 @@ export const styles = StyleSheet.create({
     fontWeight: '500',
   },
   descriptionContent: {
-    fontSize: 16,
+    fontSize: 14,
     color: 'gray',
   },
 
   footerContainer: {
     position: 'absolute',
     bottom: 0,
-    left: 20,
     alignItems: 'center',
     width: '100%',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
+    marginTop: 6,
   },
   footer: {
     width: '100%',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
+    paddingHorizontal: 6,
     paddingVertical: 6,
   },
   totalPriceContainer: {},

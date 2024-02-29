@@ -7,7 +7,7 @@ import axios from 'axios';
 import {Icon} from 'react-native-elements';
 
 const ProductsScreen = (props: any) => {
-  console.log('on pr', props?.route.params.categoryName);
+  // console.log('on pr', props?.route.params.categoryName);
   const [products, setProducts] = useState<any>([]);
   const [loading, setLoading] = useState(true);
 
